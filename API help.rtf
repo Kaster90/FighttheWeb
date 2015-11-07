@@ -1,0 +1,65 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Verdana;}
+{\colortbl;\red255\green255\blue255;\red210\green0\blue53;\red245\green245\blue247;\red217\green11\blue0;
+\red255\green255\blue255;\red72\green98\blue120;\red239\green239\blue239;\red38\green38\blue38;\red210\green0\blue53;
+\red245\green245\blue247;\red239\green239\blue239;\red38\green38\blue38;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10720\viewh12200\viewkind0
+\deftab720
+\pard\pardeftab720\sl432\sa200
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 >> enter your url of choice, google.com is an example\
+//GetIndexItemInfo command\
+var url = "
+\f1\fs26 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 http://api.majestic.com/api/json?app_api_key=\cb7 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec8 6F2E25331D0C09E508A95F33B6D9FA27\cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 &cmd=GetIndexItemInfo&items=1&item0=http://www.google.com&datasource=fresh
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 ";\
+var www : WWW = new WWW (url);\
+// wait for request to complete\
+yield www;\
+// and check for errors\
+if (www.error == null)\
+\{	var obj = JSON.parse(www.text);\
+	//Trust flow of link variable\
+	obj.Data[35];\
+    // request completed!\
+\} else \{\
+    // something wrong!\
+    Debug.Log("WWW Error: "+ www.error);\
+\}\
+\
+\pard\pardeftab720\sl432\sa200
+\cf9 \cb10 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 //GetTopics command\
+var url = "
+\f1\fs26 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 http://api.majestic.com/api/json?app_api_key=\cf4 \cb11 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 6F2E25331D0C09E508A95F33B6D9FA27\cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 &cmd=GetTopics&item=google.com&datasource=fresh&count=4
+\f0\fs24 \cf9 \cb10 \expnd0\expndtw0\kerning0
+\ul \ulc9 \outl0\strokewidth0 \'94\ulnone ;\
+var www : WWW = new WWW (url);\
+// wait for request to complete\
+yield www;\
+// and check for errors\
+if (www.error == null)\
+\{	var obj = JSON.parse(www.text);\
+	//Top 4 topics of link variable\
+	//TopicalTrustFlow for Top 4 topics of link variable\
+	for(int i = 0, i<4; i++)\{\
+\pard\pardeftab720\sl432\sa200
+\cf9 \cb10 \expnd0\expndtw0\kerning0
+	obj.Data[i].Topic;\cf9 \cb10 \expnd0\expndtw0\kerning0
+\
+	obj.Data[i].\cf9 \cb10 \expnd0\expndtw0\kerning0
+obj.Data[i].Topic\cf9 \cb10 \expnd0\expndtw0\kerning0
+;\
+	\}\
+    // request completed!\
+\} else \{\
+    // something wrong!\
+    Debug.Log("WWW Error: "+ www.error);\
+\}}
