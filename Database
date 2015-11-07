@@ -1,0 +1,3 @@
+class Database{
+	String[] Data = new String[] {"https://astonhack.co.uk/", "https://mlh.io/", "https://www.severntrent.com/", "https://majestic.com/","http://futureboardconsulting.com/", "http://www.phoebussoftware.com/", "http://www.vanti.co.uk/","https://www.uk.capgemini.com/", "https://www.accenture.com/gb-en", "http://www.aston.ac.uk/eas/about-eas/academic-groups/computer-science/",  "https://asoscareers.asos.com/", "http://www.ibm.com/uk-en/", "http://dolcelounge-birmingham.co.uk/",	"http://www.bostonteaparty.co.uk/","http://rebeluncut.co.uk/"};
+}
