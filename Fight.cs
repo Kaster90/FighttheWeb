@@ -11,7 +11,6 @@ class Fight{
 					if(Hero.alive()==0){
 						state = GameOver;
 						return state;
-						return 
 					}
 				}
 				else if(Enemies.alive()==0){
