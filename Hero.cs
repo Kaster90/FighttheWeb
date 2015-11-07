@@ -5,7 +5,7 @@ class Hero{
 	private enum Attack {Hack, Ridicule, Overstock, Distort};
 	
 	//Attack
-	public int Attack(Object[] Keywordstring, String Attack)
+	public int Attack(object[] Keywordstring, String Attack)
 	{
 			int attackDmg= this.baseDmg;
 			attackDmg = attackDmg+AttackBonus.calculateBonus(Keywordstring, Attack);
@@ -20,9 +20,9 @@ class Hero{
 	}
 	
 	//setter
-	void sethealth(int dmg)
+	void sethealth(int newhealth)
 	{
-		this.health = this.health-dmg;
+		this.health = newhealth;
 	}
 	void setbasedmg (int dmg)
 	{
