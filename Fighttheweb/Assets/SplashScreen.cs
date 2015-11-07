@@ -11,6 +11,6 @@ public class Splashscreen : MonoBehaviour {
 
 	IEnumerator DisplayScene() {
 		yield return new WaitForSeconds( timer );
-		Application.loadlevel( levelToLoad );
+		//Application.loadlevel( levelToLoad );
 	}
 }
