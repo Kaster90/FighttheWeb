@@ -1,5 +1,6 @@
 class Hero{
-	private int health;
+	private int health = 100;
+	private int maxhealth = 100;
 	private int baseDmg;
 	private enum Attack {Hack, Ridicule, Overstock, Distort};
 	
@@ -19,13 +20,29 @@ class Hero{
 	}
 	
 	//setter
-	void sethealth(int maxhealth)
+	void sethealth(int dmg)
 	{
-		this.health = maxhealth;
+		this.health = this.health-dmg;
 	}
 	void setbasedmg (int dmg)
 	{
 		this.baseDmg = dmg;
 	}
 	void setmaxhealth (int )
+
+	//getter
+	int gethealth()
+	{
+		return health;
+	}
+	
+	bool alive()
+	{
+		if (gethealth()<0)
+			return 0;
+		else
+			return 1;
+	}
+	
 }
+
