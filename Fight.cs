@@ -14,7 +14,7 @@ class Fight{
 					}
 				}
 				else if(Enemies.alive()==0){
-					getloot();
+					Loot.getloot();
 					state = OutofCombat;
 					return state;
 				}
