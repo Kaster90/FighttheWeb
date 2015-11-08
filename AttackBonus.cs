@@ -4,7 +4,8 @@ public static class AttackBonus{
 	public static int calculateBonus(Object[] Keywordstring, String Attack){
 		private int Bonus = 0;
 		private int Bonussum = 0;
-		for(int i=0; i<=3; i++)
+		for(int i=0
+		; i<=3; i++)
 		{
 			switch (Keywordstring[i].getString())
 			{
