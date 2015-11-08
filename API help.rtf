@@ -1,54 +1,43 @@
- <script>
+using SimpleJSON;
+using System.Collections.Generic;
 
-function createEnemy(url){
-var enemy = getTopicInfo(url);
-enemy.unshift(getSiteInfo(url));
-    
-return enemy;
-}
-
-function getSiteInfo(url){
-
+public Dictionary<string, int> getSiteInfo(String url){
 //GetIndexItemInfo command
 url = "http://api.majestic.com/api/json?app_api_key=6F2E25331D0C09E508A95F33B6D9FA27&cmd=GetIndexItemInfo&items=1&item0=http://www.google.com&datasource=fresh";
-var www : WWW = new WWW (url);
-// wait for request to complete
-yield www;
-
+WWW www = new WWW(url);
+yield return www;
 // and check for errors
 if (www.error == null)
-{var obj = JSON.parse(www.text);
-var site ={ SiteName : obj.Data[1], TrustFlow : obj.Data[35]};
+{var obj = JSON.Parse(www.text);
+Dictionary<string, int> sites = new Dictionary<string, int>();
+sites.Add(obj.Data[1],obj.Data[35]);
+return sites;
 // request completed!
 } else {
 // something wrong!
 Debug.Log("WWW Error: "+ www.error);
 }
-return site;
 }
 
 //GetTopics command
 
-function getTopicInfo(url){
-url = "http://api.majestic.com/api/json?app_api_key=6F2E25331D0C09E508A95F33B6D9FA27&cmd=GetTopics&item=google.com&datasource=fresh&count=4”;
-var www : WWW = new WWW (url);
-// wait for request to complete
-yield www;
-var topicsArray = new Array();
+public Dictionary<string, int> getTopicInfo(url){
+url = "http://api.majestic.com/api/json?app_api_key=6F2E25331D0C09E508A95F33B6D9FA27&cmd=GetTopics&item=google.com&datasource=fresh&count=4";
+WWW www = new WWW(url);
+yield return www;
 // and check for errors
-if (www.error == null)
-{var obj = JSON.parse(www.text);
+if (www.error == null){
+var obj = JSON.Parse(www.text);
 //Top 4 topics of link variable
 //TopicalTrustFlow for Top 4 topics of link variable
 for(int i = 0; i<4; i++){
-var site = { TopicName : obj.Data[i].Topic, TTFlow: obj.Data[i].obj.TopicalTrustFlow };
-topicsArray[i] = site ;
+Dictionary<string, int> topicsDic = new Dictionary<string, int>();
+topicsDic.Add(obj.Data[i][0],obj.Data[i][2]);
+return topicsDic;
 }
 // request completed!
 } else {
 // something wrong!
 Debug.Log("WWW Error: "+ www.error);
 }
-return topicsArray;
 }
-</script>
