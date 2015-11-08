@@ -4,6 +4,8 @@ class Hero{
 	private int baseDmg;
 	private enum Attack {Hack, Ridicule, Overstock, Distort};
 	
+	private Hero(){}
+	
 	//Attack
 	public int Attack(object[] Keywordstring, String Attack)
 	{
@@ -28,9 +30,16 @@ class Hero{
 	{
 		this.baseDmg = dmg;
 	}
-	void setmaxhealth (int )
+	void setmaxhealth (int newmaxhealth){
+		this.maxhealth = newmaxhealth;
+	}
 
 	//getter
+	int getbaseDmg()
+	{
+		return baseDmg;
+	}
+	
 	int gethealth()
 	{
 		return health;
@@ -42,6 +51,11 @@ class Hero{
 			return 0;
 		else
 			return 1;
+	}
+	
+	int getmaxhealth()
+	{
+		return maxhealth;
 	}
 	
 }
